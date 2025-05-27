@@ -76,7 +76,7 @@ If you use this code or research in your work, please cite:
   title = {Risk Parity Portfolio Construction: A Comparative Analysis of Multi-Asset Allocation Strategies},
   year = {2025},
   publisher = {GitHub},
-  url = {https://github.com/yourusername/risk-parity-analysis}
+  url = {https://github.com/matthewcasertano/risk-parity-analysis}
 }
 ```
 
