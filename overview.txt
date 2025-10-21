@@ -1,0 +1,30 @@
+RISK PARITY METHODOLOGY
+Parameters:
+
+Window: 60 trading days
+Target volatility: 10% annualized
+Financing: RF rate + 1% spread
+RF source: Fama-French monthly data, converted to daily by dividing by 21, forward-filled
+
+Three-Step Weight Calculation:
+Step 1: Inverse Volatility Base Weights
+
+For each asset, calculate 60-day rolling standard deviation
+Annualize: std × sqrt(252)
+Invert: 1/vol
+Normalize so weights sum to 1.0
+
+Step 2: True Portfolio Volatility Using Covariance
+
+For each date t, extract last 60 days of returns
+Compute covariance matrix: Σ = cov(returns) × 252
+Calculate true portfolio vol: σ_p = sqrt(w' × Σ × w)
+w is the base weight vector from Step 1
+This accounts for correlations between assets (not just individual volatilities)
+
+Step 3: Leverage Scaling
+
+Compute leverage multiplier: L = 0.10 / σ_p
+Scale all weights: final_weight = base_weight × L
+Shift forward 1 day to avoid look-ahead bias
+Final weights can exceed 1.0 (leverage) or be fractional (de-leverage)
