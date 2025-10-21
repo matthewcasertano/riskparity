@@ -1,6 +1,6 @@
 # Risk Parity Investment Strategy (2007–2025)
 
-This project investigates **risk parity as a portfolio design framework** — not merely as a diversification trick, but as a philosophy for balancing *risk* rather than *capital*. Using 18 years of daily data (2007–2025), we test how allocating risk evenly across **stocks (SPY)**, **bonds (TLT)**, and **gold (GLD)** affects long-term returns, drawdowns, and factor-adjusted performance.
+I conducted this analysis to explore **risk parity as a portfolio design framework** — not merely as a diversification trick, but as a philosophy for balancing *risk* rather than *capital*. Using 18 years of daily data (2007–2025), I tested how allocating risk evenly across **stocks (SPY)**, **bonds (TLT)**, and **gold (GLD)** affects long-term returns, drawdowns, and factor-adjusted performance.
 
 ---
 
