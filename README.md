@@ -6,7 +6,9 @@ This project investigates **risk parity as a portfolio design framework** — no
 
 ## Motivation: Beyond 60/40
 
-Traditional portfolios like the **60/40 stock–bond mix** appear diversified in capital but are overwhelmingly dominated by equity *risk*. In most market regimes, over **85–90%** of total variance comes from stocks.
+The **risk parity approach** was popularized by **Bridgewater Associates** in the early 1990s through its flagship *All Weather* strategy, which sought to create portfolios resilient across all economic environments. Bridgewater demonstrated that allocating risk evenly across asset classes — rather than concentrating it in equities — can deliver smoother and more consistent returns over time.
+
+Traditional portfolios like the **60/40 stock–bond mix** appear diversified in capital but are overwhelmingly dominated by equity *risk*. In some market regimes, over **90%** of total variance can come from stocks.
 
 **Risk parity** starts with a simple idea: instead of allocating dollars, allocate **risk contributions** evenly across assets. By doing so — and scaling the combined portfolio to a target volatility — you can achieve more stable returns through structural diversification.
 
