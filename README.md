@@ -88,7 +88,6 @@ The test covers **Jan 2007 – May 2025**, including multiple crisis regimes: 20
 
 1. Clone this repository.
 2. Open and run `final_code.ipynb` in Jupyter or VS Code.
-3. Review methodology and visuals in `Risk Parity Report.pdf`.
 
 **Dependencies:** `pandas`, `numpy`, `matplotlib`, `scipy`, `statsmodels`
 
