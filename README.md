@@ -18,7 +18,7 @@ This approach is rooted in the theory of **leverage aversion** (Asness, Frazzini
 
 * **Assets:** SPY (equities), TLT (bonds), GLD (gold)
 * **Risk Allocation:** Inverse volatility weighting with full **covariance adjustment**
-* **Volatility Target:** 10% annualized, achieved via dynamic leverage
+* **Volatility Target:** 12% annualized, achieved via dynamic leverage
 * **Financing Cost:** Risk-free rate + 1% spread
 * **Rebalancing:** Daily, using 60-day rolling volatilities
 
