@@ -1,69 +1,93 @@
-# Risk Parity Portfolio Construction
+# Risk Parity Investment Strategy (2007–2025)
 
-A comprehensive analysis of risk parity strategies using 18 years of market data (2007-2025), examining the value of adding gold to traditional stock-bond allocations.
-
-## Key Findings
-
-**Best Performance**: Stock-Bond-Gold risk parity achieved **0.98 Sharpe ratio** vs 0.60 for S&P 500
-
-**Crisis Protection**: Limited 2008 crisis losses to **2.9%** vs 43.9% for S&P 500, with positive returns during 2020 COVID (+0.4%) and 2025 tariff crises (+2.7%)
-
-**Alpha Generation**: Significant alpha across all factor models, with 0.53% monthly alpha (6.4% annualized)
-
-## Strategies Compared
-
-### Risk Parity
-- **Stock-Bond RP**: SPY + TLT
-- **Stock-Gold RP**: SPY + GLD  
-- **Stock-Bond-Gold RP**: SPY + TLT + GLD
-
-### Benchmarks
-- 60-40 Portfolio, Equal Weight, Leveraged Individual Assets, S&P 500
-
-All strategies volatility-targeted to 10% for fair comparison.
-
-## Results Summary
-
-| Strategy | Return | Sharpe | Max Drawdown |
-|----------|--------|--------|--------------|
-| **Stock-Bond-Gold RP** | **10.5%** | **0.98** | **-20.2%** |
-| Stock-Bond RP | 10.3% | 0.95 | -24.2% |
-| 60-40 Portfolio | 8.7% | 0.76 | -29.9% |
-| S&P 500 | 11.7% | 0.60 | -55.2% |
-
-## Repository Contents
-
-```
-├── data/                    # ETF price data (SPY, TLT, GLD)
-├── final_code.ipynb        # Complete analysis code
-├── Risk Parity Report.pdf  # Full research report
-└── README.md
-```
-
-## Methodology
-
-- **Risk Allocation**: Inverse volatility weighting with full covariance adjustment
-- **Volatility Targeting**: 10% annual target with dynamic leverage
-- **Financing Costs**: Risk-free rate + 1% spread
-- **Rebalancing**: Daily weight updates based on 60-day rolling volatility
-
-## Key Insights
-
-1. **Gold matters**: Adding gold to stock-bond risk parity significantly improves crisis resilience
-2. **Risk beats capital allocation**: Risk parity outperformed traditional 60-40 and equal weight strategies
-3. **Crisis alpha**: Automatic rebalancing provides protection during market stress
-4. **Efficient leverage**: Risk parity required less leverage than individual volatile assets
-
-## Usage
-
-1. Clone repository
-2. Run `final_code.ipynb` for complete analysis
-3. See `Risk Parity Report.pdf` for detailed methodology and findings
-
-## Requirements
-
-Standard Python stack: `pandas`, `numpy`, `matplotlib`, `scipy`
+This project investigates **risk parity as a portfolio design framework** — not merely as a diversification trick, but as a philosophy for balancing *risk* rather than *capital*. Using 18 years of daily data (2007–2025), we test how allocating risk evenly across **stocks (SPY)**, **bonds (TLT)**, and **gold (GLD)** affects long-term returns, drawdowns, and factor-adjusted performance.
 
 ---
 
-*Research for educational purposes. Past performance doesn't guarantee future results.*
+## Motivation: Beyond 60/40
+
+Traditional portfolios like the **60/40 stock–bond mix** appear diversified in capital but are overwhelmingly dominated by equity *risk*. In most market regimes, over **85–90%** of total variance comes from stocks.
+
+**Risk parity** starts with a simple idea: instead of allocating dollars, allocate **risk contributions** evenly across assets. By doing so — and scaling the combined portfolio to a target volatility — you can achieve more stable returns through structural diversification.
+
+This approach is rooted in the theory of **leverage aversion** (Asness, Frazzini & Pedersen, 2012): investors constrained or unwilling to use leverage overpay for risky assets and underprice safe ones. Risk parity exploits this imbalance by levering safer, higher risk-adjusted-return assets to parity with riskier ones.
+
+---
+
+## Methodology
+
+* **Assets:** SPY (equities), TLT (bonds), GLD (gold)
+* **Risk Allocation:** Inverse volatility weighting with full **covariance adjustment**
+* **Volatility Target:** 10% annualized, achieved via dynamic leverage
+* **Financing Cost:** Risk-free rate + 1% spread
+* **Rebalancing:** Daily, using 60-day rolling volatilities
+
+The test covers **Jan 2007 – May 2025**, including multiple crisis regimes: 2008 GFC, 2020 COVID, and 2025 tariff shocks.
+
+---
+
+## Strategies Tested
+
+| Category               | Description                                              |
+| ---------------------- | -------------------------------------------------------- |
+| **Stock–Bond RP**      | SPY + TLT, equal risk allocation                         |
+| **Stock–Gold RP**      | SPY + GLD, equal risk allocation                         |
+| **Stock–Bond–Gold RP** | SPY + TLT + GLD (full covariance risk parity)            |
+| **Benchmarks**         | S&P 500, 60/40, Equal Weight, Vol-targeted single assets |
+
+---
+
+## Results Summary
+
+| Strategy               | Return    | Sharpe   | Max Drawdown |
+| ---------------------- | --------- | -------- | ------------ |
+| **Stock–Bond–Gold RP** | **12.0%** | **0.93** | **−24.1%**   |
+| Stock–Bond RP          | 11.8%     | 0.89     | −28.7%       |
+| Stock–Gold RP          | 11.1%     | 0.84     | −22.7%       |
+| Equal Weight           | 8.6%      | 0.88     | −22.7%       |
+| 60–40                  | 8.7%      | 0.76     | −29.9%       |
+| S&P 500                | 11.7%     | 0.60     | −55.2%       |
+
+**Crisis Protection:**
+
+* **2008 GFC:** RP(S–B–G) −3.9% vs S&P −43.9%
+* **2020 COVID:** RP(S–B–G) −0.7% vs S&P −9.0%
+* **2025 Tariffs:** RP(S–B–G) +2.3% vs S&P −5.9%
+
+**Factor Alpha:**
+
+* CAPM α ≈ **0.61%/month**, *p* ≈ 0.013
+* FF3 α ≈ **0.49%/month**, *p* ≈ 0.034
+* FF5+Mom α ≈ **0.40%/month** (positive, not significant at 5%)
+
+---
+
+## Interpretation
+
+1. **Risk parity works.** Equalizing risk exposure produces higher Sharpe ratios and smaller drawdowns without sacrificing long-run returns.
+2. **Leverage, when disciplined, is a tool — not a sin.** Scaling balanced portfolios to a target volatility unlocks consistent compounding.
+3. **Diversification across uncorrelated assets** produces resilience through all market conditions.
+4. **Alpha comes from balance, not prediction.** The outperformance persists even after controlling for standard equity and factor exposures.
+
+---
+
+## Repository Structure
+
+```
+├── data/                    # ETF price data (SPY, TLT, GLD)
+├── final_code.ipynb         # Full analysis notebook
+├── Risk Parity Report.pdf   # Detailed results & charts
+└── README.md                # This file
+```
+
+---
+
+## How to Run
+
+1. Clone this repository.
+2. Open and run `final_code.ipynb` in Jupyter or VS Code.
+3. Review methodology and visuals in `Risk Parity Report.pdf`.
+
+**Dependencies:** `pandas`, `numpy`, `matplotlib`, `scipy`, `statsmodels`
+
+---
